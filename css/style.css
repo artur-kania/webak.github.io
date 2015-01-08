@@ -1,0 +1,356 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    overflow-x: hidden;
+}
+
+.header {
+    position: fixed;
+    height: 65px;
+    width: 100%;
+    z-index: 222;
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-transition: background-color 1.2s ease;
+    transition: background-color 1.2s ease;
+}
+
+.transparent-top {
+    background-color: transparent;
+}
+
+#logo-white {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: calc(50% - 115px);
+    z-index: 9999;
+    padding: 15px 40px;
+    background-color: #000;
+    border: 3px solid #fff;
+}
+
+@media (max-width: 480px) {
+    #logo-white {
+        top: 0;
+        left: 0;
+        height: 60px;
+        border: none;
+        background: transparent;
+    }
+}
+
+hr.dashed-line {
+    margin-top: 55px;
+    border: none;
+    border-bottom: 4px dashed #fff;
+}
+
+.full-page {
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 40px);
+    min-height: 700px;
+    background-color: #fff;
+    border-top: 20px solid #f00;
+    border-bottom: 20px solid #f00;
+    margin: -20px 0;
+}
+
+@media (max-width: 480px) {
+    .full-page { min-height: 550px }
+}
+
+/* =========== WELCOME PAGE ============== */
+
+#welcome {
+    height: 100%;
+    padding: 0 5%;
+    text-align: center;
+    background-image: url('../images/comp2.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    #welcome { min-height: 450px }
+}
+
+#welcome-description {
+    padding: 3%;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 200px auto 100px;
+    max-width: 960px;
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    #welcome-description {
+        margin: 120px auto 88px
+    }
+}
+
+#welcome-description h2 {
+    font-family: 'Francois One', sans-serif;
+    font-size: 4em;
+}
+
+@media (max-width: 480px) {
+        #welcome-description h2 { font-size: 2em }
+}
+
+#welcome-description h3 {
+    font-family: 'Josefin Slab', serif;
+    font-size: 2.5em;
+}
+
+@media (max-width: 480px) {
+    #welcome-description h3 { font-size: 1.5em }
+}
+
+.welcome-icon-down {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    font-size: 2.5em;
+    line-height: 63px;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    padding-left: 3px;
+}
+
+.welcome-icon-down a {
+    display: block;
+    text-decoration: none;
+}
+
+.welcome-icon-down span {
+    color: #fff;
+    -webkit-animation: arrowFading 2s ease infinite;
+    animation: arrowFading 2s ease infinite;
+    transition: all 1s ease;
+}
+
+@-webkit-keyframes arrowFading {
+    0%, 100% { opacity: 0.3 }
+    50% { opacity: 0.8 }
+}
+
+@keyframes arrowFading {
+    0%, 100% { opacity: 0.3 }
+    50% { opacity: 0.8 }
+}
+
+.welcome-icon-down a:hover span {
+    color: #f00;
+    -webkit-animation: arrowFading 0.5s ease infinite;
+    animation: arrowFading 0.5s ease infinite;
+}
+
+.ng-enter {
+    -webkit-animation: moveFromBottomFade 1s ease both;
+    animation: moveFromBottomFade 1s ease both;
+}
+
+@-webkit-keyframes moveFromBottomFade {
+    from { -webkit-transform: translateY(100%) }
+}
+
+@keyframes moveFromBottomFade {
+    from { -webkit-transform: translateY(100%); transform: translateY(100%) }
+}
+
+.ng-leave {
+    -webkit-animation: slideOut 1.5s ease-out 0.2s;
+    animation: slideOut 1s ease-out;
+}
+
+@keyframes slideOut {
+    to { -webkit-transform: translateY(-50%); transform: translateY(-50%) }
+}
+
+@-webkit-keyframes slideOut {
+    to { -webkit-transform: translateY(-50%) }
+}
+
+.up.ng-enter {
+    -webkit-animation: moveFromTop 1s ease both;
+    animation: moveFromBottomFade 1s ease both;
+}
+
+@-webkit-keyframes moveFromTop {
+    from { -webkit-transform: translateY(-100%) }
+}
+
+@keyframes moveFromTop {
+    from { -webkit-transform: translateY(-100%); transform: translateY(-100%) }
+}
+
+.up.ng-leave {
+    -webkit-animation: slideOutUp 1.5s ease-out 0.2s;
+    animation: slideOut 1s ease-out;
+}
+
+@keyframes slideOutUp {
+    to { -webkit-transform: translateY(50%); transform: translateY(50%) }
+}
+
+@-webkit-keyframes slideOutUp {
+    to { -webkit-transform: translateY(50%) }
+}
+
+/* ============= MENU ========= */
+
+#menu-trigger {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 2px;
+    width: 60px;
+    height: 50px;
+    padding: 10px;
+}
+
+#menu-trigger a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#menu-trigger span {
+    font-size: 2.5em;
+    color: #fff;
+    transition: color 0.3s linear;
+}
+
+#menu-trigger a:hover span { color: #f00 }
+
+.fa-fw {
+    width: 2.5em;
+    padding-right: 20px;
+    font-size: 1.5em;
+}
+
+/* =========== CONTACT PAGE ============= */
+
+#contact-page { height: 100% }
+
+@media (max-width: 480px) {
+    #contact-page { min-height: 550px }
+}
+
+#contact-page .row { height: 100% }
+
+#contact-page .col-sm-6 {
+    height: 50%;
+    min-height: 350px;
+}
+
+#contact-page .col-sm-6:first-child {
+    background-image: url('../images/comp2.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#contact-page .col-sm-6:nth-child(2) {
+    background-color: #6e6e6e;
+    padding: 3%;
+    padding-top: calc(100px + 3%);
+    color: #fff;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    #contact-page .col-sm-6:nth-child(2) {
+        padding: 3% 7%;
+        padding-top: calc(100px + 3%);
+    }
+}
+
+@media (max-width: 480px) {
+    #contact-page .col-sm-6:nth-child(2) { padding-top: calc(75px + 3%) }
+}
+
+#contact-page .col-sm-6:nth-child(2) span {
+    float: left;
+    padding-right: 3%;
+}
+
+#contact-page .col-sm-6:nth-child(2) p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.7em;
+    margin-top: -3px;
+    padding: 2px;
+}
+
+@media (max-width: 992px) {
+    #contact-page .col-sm-6:nth-child(2) p { font-size: 0.6em }
+}
+
+#contact-page .col-sm-6:nth-child(3) {
+    padding: 5% 0;
+    color: #6e6e6e;
+}
+
+@media (max-width: 480px) {
+    #contact-page .col-sm-6:nth-child(3) { min-height: 250px }
+}
+
+#contact-page .col-sm-6:nth-child(4) {
+    background-image: url('../images/comp3.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#contact-page ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 475px;
+}
+
+#contact-page li {
+    padding: 2px;
+    font-family: 'Francois One', sans-serif;
+    font-size: 2em;
+    transition: color 0.3s;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #contact-page li {
+        font-size: 1.5em;
+        padding-left: 7%;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact-page li {
+        font-size: 1.3em;
+        padding-left: 5%;
+    }
+}
+
+#contact-page li i {
+    font-size: 2em;
+    transition: transform 0.4s;
+}
+
+#contact-page li span { vertical-align: super }
+
+#contact-page li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#contact-page li:hover  { color: #f00 }
+
+#contact-page li:hover i {
+    webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
