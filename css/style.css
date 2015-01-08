@@ -226,7 +226,7 @@ hr.dashed-line {
     transition: color 0.3s linear;
 }
 
-#menu-trigger a:hover span { color: #f00 }
+#menu-trigger a:hover span { color: #e74c3c }
 
 .fa-fw {
     width: 2.5em;
@@ -353,4 +353,40 @@ hr.dashed-line {
 #contact-page li:hover i {
     webkit-transform: scale(1.1, 1.1);
     transform: scale(1.1, 1.1);
+}
+
+/* ============= EXPERIENCE PAGE ============== */
+
+#exp .col-xs-3 {
+    border-right: 2px solid #c1c1c1;
+    margin-bottom: 30px;
+}
+
+#exp .col-xs-3 div {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+#exp .html-badge {
+    background-image: url('../images/html_flat.png');
+}
+
+#exp .css-badge {
+    background-image: url('../images/css_flat.png');
+}
+
+#exp .js-badge {
+    background-image: url('../images/js_flat.png');
+}
+
+#exp .angular-badge {
+    background-image: url('../images/angular_flat.png');
+}
+
+#exp .col-xs-9 {
+    padding-left: 75px;
 }
