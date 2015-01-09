@@ -88,6 +88,8 @@ myApp.controller('pageStatusController', function ($scope, $rootScope, $location
                 $scope.showNextPage();
             }
         }
+        
+        $scope.changeTransparentHeader();
     };
 
     $rootScope.$on("$routeChangeSuccess", function () {

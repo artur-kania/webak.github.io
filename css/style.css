@@ -3,6 +3,7 @@ body, html {
     height: 100%;
     cursor: default;
     overflow-x: hidden;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .header {
@@ -10,33 +11,24 @@ body, html {
     height: 65px;
     width: 100%;
     z-index: 222;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #e74c3c;
     -webkit-transition: background-color 1.2s ease;
     transition: background-color 1.2s ease;
-}
-
-.transparent-top {
-    background-color: transparent;
 }
 
 #logo-white {
     display: block;
     position: fixed;
-    top: 15px;
-    left: calc(50% - 115px);
+    top: 3px;
+    left: calc(50% - 32px);
     z-index: 9999;
-    padding: 15px 40px;
-    background-color: #000;
-    border: 3px solid #fff;
 }
 
 @media (max-width: 480px) {
     #logo-white {
-        top: 0;
-        left: 0;
-        height: 60px;
-        border: none;
-        background: transparent;
+        top: 5px;
+        left: 12px;
+        height: 45px;
     }
 }
 
@@ -52,8 +44,8 @@ hr.dashed-line {
     height: calc(100% + 40px);
     min-height: 700px;
     background-color: #fff;
-    border-top: 20px solid #f00;
-    border-bottom: 20px solid #f00;
+    border-top: 20px solid #e74c3c;
+    border-bottom: 20px solid #e74c3c;
     margin: -20px 0;
 }
 
@@ -66,88 +58,72 @@ hr.dashed-line {
 #welcome {
     height: 100%;
     padding: 0 5%;
-    text-align: center;
-    background-image: url('../images/comp2.jpg');
-    background-position: center center;
-    background-size: cover;
+    background-color: #9abbc2;
+    background-image: url('../images/my_flat_bg_half.png');
+    background-position: right bottom;
+    background-size: 60%;
     background-repeat: no-repeat;
     overflow: hidden;
 }
 
-@media (max-width: 480px) {
-    #welcome { min-height: 450px }
+@media (max-width: 768px) {
+    #welcome {
+        background-size: 100%;
+        background-position: 100% 85%
+    }
+}
+
+@media (max-width: 992px) {
+    #welcome {
+        background-size: 70%
+    }
 }
 
 #welcome-description {
-    padding: 3%;
-    background-color: rgba(0, 0, 0, 0.4);
-    margin: 200px auto 100px;
-    max-width: 960px;
+    padding: 2.5em 3em;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 15% 3% 0 3%;
+    width: 41em;
     color: #fff;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     #welcome-description {
-        margin: 120px auto 88px
+        margin: 7em auto 0;
+        width: 95%;
+        text-align: center;
+        padding: 1em;
     }
 }
 
 #welcome-description h2 {
-    font-family: 'Francois One', sans-serif;
-    font-size: 4em;
+    font-size: 6em;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0;
 }
 
-@media (max-width: 480px) {
-        #welcome-description h2 { font-size: 2em }
+#welcome-description span {
+    color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+        #welcome-description h2 { font-size: 3em }
 }
 
 #welcome-description h3 {
-    font-family: 'Josefin Slab', serif;
-    font-size: 2.5em;
+    font-size: 2em;
+    font-weight: 200;
+    margin-top: -0.5em;
+    line-height: 1;
 }
 
-@media (max-width: 480px) {
-    #welcome-description h3 { font-size: 1.5em }
-}
-
-.welcome-icon-down {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto;
-    font-size: 2.5em;
-    line-height: 63px;
-    border: 3px solid #fff;
-    border-radius: 50px;
-    padding-left: 3px;
-}
-
-.welcome-icon-down a {
-    display: block;
-    text-decoration: none;
-}
-
-.welcome-icon-down span {
-    color: #fff;
-    -webkit-animation: arrowFading 2s ease infinite;
-    animation: arrowFading 2s ease infinite;
-    transition: all 1s ease;
-}
-
-@-webkit-keyframes arrowFading {
-    0%, 100% { opacity: 0.3 }
-    50% { opacity: 0.8 }
-}
-
-@keyframes arrowFading {
-    0%, 100% { opacity: 0.3 }
-    50% { opacity: 0.8 }
-}
-
-.welcome-icon-down a:hover span {
-    color: #f00;
-    -webkit-animation: arrowFading 0.5s ease infinite;
-    animation: arrowFading 0.5s ease infinite;
+@media (max-width: 768px) {
+    #welcome-description h3 { 
+        font-size: 1.5em;
+        margin-top: -0.2em; 
+    }
 }
 
 .ng-enter {
@@ -226,7 +202,7 @@ hr.dashed-line {
     transition: color 0.3s linear;
 }
 
-#menu-trigger a:hover span { color: #e74c3c }
+#menu-trigger a:hover span { color: #404040 }
 
 .fa-fw {
     width: 2.5em;
@@ -257,7 +233,7 @@ hr.dashed-line {
 }
 
 #contact-page .col-sm-6:nth-child(2) {
-    background-color: #6e6e6e;
+    background-color: #7f8c8d;
     padding: 3%;
     padding-top: calc(100px + 3%);
     color: #fff;
@@ -358,7 +334,7 @@ hr.dashed-line {
 /* ============= EXPERIENCE PAGE ============== */
 
 #exp .col-xs-3 {
-    border-right: 2px solid #c1c1c1;
+    border-right: 2px solid #95a5a6;
     margin-bottom: 30px;
 }
 
@@ -395,16 +371,23 @@ hr.dashed-line {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 125px;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 0 20%;
+    height: 8vmin;
+    background: #95a5a6;
+    /*padding: 0 20%;*/
 }
 
+#exp .exp-icons > div {
+    height: 100%;
+    width: 72vmin; /* 9 icons * 8vmin exp-cions height */
+    margin: 0 auto;
+}
+
+
 #exp .exp-icons span {
-    display: block;
+    /*display: block;*/
     float: left;
-    width: 11.1%;
-    height: 130px;
+    width: 8vmin;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;

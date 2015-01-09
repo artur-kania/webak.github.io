@@ -1,5 +1,5 @@
 /**
- * sidebarEffects v1.0.0 modified by webak
+ * sidebarEffects v1.0.0 modified by Artur Kania
  * http://www.codrops.com
  *
  * Licensed under the MIT license.
@@ -127,7 +127,7 @@ body,
 .st-menu > i {
 	width: 100%;
 	padding: 10% 35%;
-	color: #000;
+	color: #404040;
 	font-size: 6em;
 }
 
@@ -142,7 +142,7 @@ body,
 	display: block;
 	padding: 1.2em 1em 1.2em 2em;
 	outline: none;
-	color: #6e6e6e;
+	color: #7f8c8d;
 	text-transform: uppercase;
 	font-family: "Francois One",sans-serif;
 	letter-spacing: 1px;
@@ -159,7 +159,7 @@ body,
 }
 
 .st-menu ul li a:hover {
-	background: #BB0000;
+	background: #e74c3c;
 	color: #fff;
 }
 

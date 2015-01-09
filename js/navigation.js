@@ -75,7 +75,7 @@
 
 /* ========================================================================== */
 /**
- * sidebarEffects.js v1.0.0 modified by webak
+ * sidebarEffects.js v1.0.0 modified by Artur Kania
  * http://www.codrops.com
  *
  * Licensed under the MIT license.
