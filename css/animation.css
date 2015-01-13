@@ -158,7 +158,7 @@
 @-webkit-keyframes showFromTop {
 	from {
 	-webkit-transform: translateY(-500%);
-			transform: translateX(-500%);
+			transform: translateY(-500%);
 	}
 
 	to {

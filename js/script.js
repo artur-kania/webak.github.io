@@ -11,6 +11,7 @@ $(document).ready(function () {
 
 		$('#home-page').css('padding-left', marginFromNav);
 		$('#about-page').css('padding-left', marginFromNav);
+		$('#contact-page').css('padding-left', marginFromNav);
 	}
 
 	function iconsPosition () {
@@ -28,9 +29,7 @@ $(document).ready(function () {
 	}
 
 	function animateHome () {
-		$('#home-page .logo-left')
-			.toggleClass('animation1in animation1out');
-			/*.toggleClass('animation1in');*/
+		$('#home-page .logo-left').toggleClass('animation1in animation1out');
 		$('#home-page .contact').toggleClass('animation2out animation2in');
 		$('#home-page .clock').toggleClass('animation3out animation3in');
 		$('#home-page .my-name').toggleClass('animation4out animation4in');
@@ -41,39 +40,79 @@ $(document).ready(function () {
 		$('#home-page .devices').toggleClass('animation9out animation9in');
 	}
 
-
-	$('#show-about').click(function (event) {
-		event.preventDefault();
-
-		if (pageStatus != 2 && onWork == false) {
-			onWork = true;
-			pageStatus = 2;
-
-			$('#about-page').css('display', 'flex');		
-			iconsPosition();
-			animateHome();	
-
-			setTimeout(function () {
-				$('#home-page').css('display', 'none');
-				onWork = false;
-			}, 2200);
-		}
-	});
+	function animateAbout () {
+		$('#about-page .ab1').toggleClass('animation1in animation1out');
+		$('#about-page .flat-icons').toggleClass('animation3in animation3out');
+	}
 
 	$('#show-home').click(function (event) {
 		event.preventDefault();
 
 		if (pageStatus != 1 && onWork == false) {
 			onWork = true;
-			pageStatus = 1;
 		
 			$('#home-page').css('display', 'flex');
+
 			animateHome();
 
 			setTimeout(function () {
 				$('#about-page').css('display', 'none');
+				$('#contact-page').css('display', 'none');
 				onWork = false;
-			}, 2200);
+				pageStatus = 1;
+			}, 1000);
+		}
+	});
+
+	$('#show-about').click(function (event) {
+		event.preventDefault();
+
+		if (pageStatus != 2 && onWork == false) {
+			onWork = true;
+
+			$('#about-page').css('display', 'flex');		
+			iconsPosition();
+
+			if (pageStatus == 1) {
+				animateHome();
+			}	
+
+			if ( $('#about-page .ab1').hasClass('animation1out') ) {
+				animateAbout();
+			}
+			
+
+			setTimeout(function () {
+				$('#home-page').css('display', 'none');
+				$('#contact-page').css('display', 'none');
+				onWork = false;
+				pageStatus = 2;
+			}, 2100);
+		}
+	});
+
+	$('#show-contact').click(function (event) {
+		event.preventDefault();
+
+		if (pageStatus != 3 && onWork == false) {
+			onWork = true;
+			
+			$('#contact-page').css('display', 'flex');
+		
+			if (pageStatus == 1) {
+				animateHome();
+			}
+
+			if (pageStatus == 2) {
+				animateAbout();
+			}	
+				
+			setTimeout(function () {
+				$('#home-page').css('display', 'none');
+				$('#about-page').css('display', 'none')
+				onWork = false;
+				pageStatus = 3;
+			}, 2100);
 		}
 	});
 
