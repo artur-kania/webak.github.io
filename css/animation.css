@@ -1,22 +1,22 @@
 
 .animation1in {
-	-webkit-animation: showFromRight .5s linear forwards;
-			animation: showFromRight .5s linear forwards;
-}
-
-.animation1out {
-	-webkit-animation: fadeRight 1s linear forwards;
-			animation: fadeRight 1s linear forwards;
-}
-
-.animation2in {
 	-webkit-animation: showFromLeft 1s linear forwards;
 			animation: showFromLeft 1s linear forwards;
 }
 
+.animation1out {
+	-webkit-animation: fadeLeft 1s linear forwards;
+			animation: fadeLeft 1s linear forwards;
+}
+
+.animation2in {
+	-webkit-animation: showFromRight 1s linear forwards;
+			animation: showFromRight 1s linear forwards;
+}
+
 .animation2out {
-	-webkit-animation: fadeLeft 1s linear 0.2s forwards;
-			animation: fadeLeft 1s linear 0.2s forwards;
+	-webkit-animation: fadeRight 1s linear .2s forwards;
+			animation: fadeRight 1s linear .2s forwards;
 }
 
 .animation3in {
@@ -25,8 +25,8 @@
 }
 
 .animation3out {
-	-webkit-animation: fadeUp 1s linear 0.4s forwards;
-			animation: fadeUp 1s linear 0.4s forwards;
+	-webkit-animation: fadeUp 1s linear .4s forwards;
+			animation: fadeUp 1s linear .4s forwards;
 }
 
 .animation4in {
@@ -35,8 +35,8 @@
 }
 
 .animation4out {
-	-webkit-animation: fadeRight 2s linear 0.6s forwards;
-			animation: fadeRight 2s linear 0.6s forwards;	
+	-webkit-animation: fadeRight 1s linear .6s forwards;
+			animation: fadeRight 1s linear .6s forwards;	
 }
 
 .animation5in {
@@ -45,29 +45,32 @@
 }
 
 .animation5out {
-	-webkit-animation: fadeLeft 1s linear 0.8s forwards;
-			animation: fadeLeft 1s linear 0.8s forwards;
+	-webkit-animation: fadeLeft 1s linear .8s forwards;
+			animation: fadeLeft 1s linear .8s forwards;
 }
 
 .animation6in {
-	-webkit-animation: showFromRight 1s linear forwards;
-			animation: showFromRight 1s linear forwards;
+	-webkit-animation: showFromTop 1s linear forwards;
+			animation: showFromTop 1s linear forwards;
 }
 
 .animation6out {
-	-webkit-animation: fadeRight 1s linear 1s forwards;
-			animation: fadeRight 1s linear 1s forwards;
+	-webkit-animation: fadeUp 1s linear 1s forwards;
+			animation: fadeUp 1s linear 1s forwards;
 }
+/* ================== */
 
 .animation7in {
-	-webkit-animation: showFromLeft 1s linear forwards;
-			animation: showFromLeft 1s linear forwards;
+	-webkit-animation: showFromTop 1s linear forwards;
+			animation: showFromTop 1s linear forwards;
 }
 
 .animation7out {
-	-webkit-animation: fadeLeft 1s linear 1.2s forwards;
-			animation: fadeLeft 1s linear 1.2s forwards;
+	-webkit-animation: fadeUp 4s linear .8s forwards;
+			animation: fadeUp 4s linear .8s forwards;
 }
+
+/* =================== */
 
 .animation8in {
 	-webkit-animation: showFromRight 1s linear forwards;
@@ -75,8 +78,8 @@
 }
 
 .animation8out {
-	-webkit-animation: fadeRight 1s linear 1.4s forwards;
-			animation: fadeRight 1s linear 1.4s forwards;
+	-webkit-animation: fadeRight 1s linear .9s forwards;
+			animation: fadeRight 1s linear .9s forwards;
 }
 
 .animation9in {
@@ -85,8 +88,8 @@
 }
 
 .animation9out {
-	-webkit-animation: fadeLeft 0.8s linear 1.6s forwards;
-			animation: fadeLeft 0.8s linear 1.6s forwards;
+	-webkit-animation: fadeLeft 0.8s linear 1s forwards;
+			animation: fadeLeft 0.8s linear 1s forwards;
 }
 
 /* ============= showFromRight ========== */
