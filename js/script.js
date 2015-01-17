@@ -33,7 +33,7 @@ ARTUR = {
 			scrollTo : function () {
 				return this.each(function () {
 					var target = $(this).offset().top;
-					//ARTUR.options.offsetTop = target;
+					ARTUR.options.offsetTop = target + 2;
 					$('html, body').stop().animate({
 						'scrollTop': target
 					}, ARTUR.options.speed, ARTUR.options.easingType);
