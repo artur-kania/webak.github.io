@@ -17,10 +17,17 @@ var ARTUR = {};
 
 ARTUR = {
 	options : {
-		offsetTop : 0,	// obecny offsett
 		speed : 900,
-		easingType : 'swing',
-		currentPage : 0	// index obecnej strony
+		easingType : 'swing'
+	},
+
+	variables : {
+		offsetTop : 0,
+		currentPage : 0,
+		navLinks : $('nav li a'),
+		pages : $('.full-page'),
+		numberOfPages : $('.full-page').length
+
 	},
 
 	init : function () {
@@ -29,11 +36,11 @@ ARTUR = {
 	},
 	
 	scrollTo : function () {
-		$.fn.extend({						// to provide chaining .scrollTo();
+		$.fn.extend({
 			scrollTo : function () {
 				return this.each(function () {
 					var target = $(this).offset().top;
-					//ARTUR.options.offsetTop = target
+					//ARTUR.variables.offsetTop = target
 					$('html, body').stop().animate({
 						'scrollTop': target
 					}, ARTUR.options.speed, ARTUR.options.easingType);
@@ -55,10 +62,10 @@ ARTUR = {
 		},
 
 		mainNavigation : function () {
-			var link = $('nav li a');
+			//ARTUR.variables.navLinks = $('nav li a');
 
-			link.click(function (e) {			
-				var clickedLink = link.index($(this));
+			ARTUR.variables.navLinks.click(function (e) {			
+				var clickedLink = ARTUR.variables.navLinks.index($(this));
 				e.preventDefault();
 				switch (clickedLink) {
 					case 0:
@@ -88,10 +95,10 @@ ARTUR = {
 		},
 
 		toggleByArrow : function () {
-			var links = $('nav li a'),
-				numberOfPages = $('.full-page').length,
-				buttons = [37, 38, 39, 40];
-
+			var buttons = [37, 38, 39, 40];
+				//ARTUR.variables.navLinks = $('nav li a'),
+				//ARTUR.variables.numberOfPages = $('.full-page').length,
+			
 			$('#keys a').click(function (e) {
 				e.preventDefault();
 			});
@@ -107,23 +114,20 @@ ARTUR = {
 
 					switch (keycode) {
 						case 38: //up
-							if ((ARTUR.options.currentPage - 1) >= 0) {
+							if ((ARTUR.variables.currentPage - 1) >= 0) {
 								//ARTUR.options.currentPage--;
-								links.eq(ARTUR.options.currentPage - 1).click();
+								ARTUR.variables.navLinks.eq(ARTUR.variables.currentPage - 1).click();
 								$('#keyUp').addClass('active');
 							}			
 							break;
 						case 40: //down
-							if ((ARTUR.options.currentPage + 1) < numberOfPages) {
-								//ARTUR.options.currentPage++;
-								links.eq(ARTUR.options.currentPage + 1).click();
+							if ((ARTUR.variables.currentPage + 1) < ARTUR.variables.numberOfPages) {
+								//ARTUR.variables.currentPage++;
+								ARTUR.variables.navLinks.eq(ARTUR.variables.currentPage + 1).click();
 								$('#keyDown').addClass('active');
 							}				
 							break;
 					}
-
-					//console.log('current page ' + ARTUR.options.currentPage);
-					//console.log('current offset: ' + ARTUR.options.offsetTop);
 				})
 
 				.keyup(function () {
@@ -155,18 +159,18 @@ ARTUR = {
 
 		getCurrentPosition : function () {
 			var pageIndex = 0,
-				pages = $('.full-page'),
-				numberOfPages = $('.full-page').length,
 				i = 0;
+				//ARTUR.variables.pages = $('.full-page'),
+				//ARTUR.variables.snumberOfPages = $('.full-page').length,
 
-			for (i; i < numberOfPages; i++) {
-				if ((pages.eq(i).offset().top - 200) <= ARTUR.options.offsetTop) {
+			for (i; i < ARTUR.variables.numberOfPages; i++) {
+				if ((ARTUR.variables.pages.eq(i).offset().top - 200) <= ARTUR.variables.offsetTop) {
 					pageIndex = i;
 				}
 			}
 
-			if (ARTUR.options.currentPage != pageIndex) {
-				ARTUR.options.currentPage = pageIndex;
+			if (ARTUR.variables.currentPage != pageIndex) {
+				ARTUR.variables.currentPage = pageIndex;
 			}
 		},
 
@@ -174,24 +178,24 @@ ARTUR = {
 			$(window).scroll(scrollDetection);
 
 			function scrollDetection () {
-				ARTUR.options.offsetTop = $(window).scrollTop();
+				ARTUR.variables.offsetTop = $(window).scrollTop();
 				ARTUR.menu.getCurrentPosition();
 				ARTUR.menu.setNavHoverColor();
 				ARTUR.menu.setActiveClass();
 				ARTUR.menu.setHeaderBg();
 
-				console.log('offset: ' + ARTUR.options.offsetTop);
-				console.log('currentPage: ' + ARTUR.options.currentPage);
+				console.log('offset: ' + ARTUR.variables.offsetTop);
+				console.log('currentPage: ' + ARTUR.variables.currentPage);
 			}
 		},
 
 		setNavHoverColor : function () {
-			var navElem = $('nav li a'),
-				bgColors = ['#2980b9', '#f8823c', '#c0392b', '#9b59b6', '#2c5379'];
+			var bgColors = ['#2980b9', '#f8823c', '#c0392b', '#9b59b6', '#2c5379'];
+				//ARTUR.variables.navLinks = $('nav li a'),
 
-			navElem.hover(
+			ARTUR.variables.navLinks.hover(
 				function () {
-					$(this).css({ backgroundColor : bgColors[ARTUR.options.currentPage]});
+					$(this).css({ backgroundColor : bgColors[ARTUR.variables.currentPage]});
 				},
 				function () {
 					$(this).css({ backgroundColor : ''});
@@ -200,10 +204,10 @@ ARTUR = {
 		},
 
 		setActiveClass : function () {
-			var navElem = $('nav li a');
+			//ARTUR.variables.navLinks = $('nav li a');
 
-			navElem.removeClass('active');
-			navElem.eq(ARTUR.options.currentPage).addClass('active');
+			ARTUR.variables.navLinks.removeClass('active');
+			ARTUR.variables.navLinks.eq(ARTUR.variables.currentPage).addClass('active');
 		},
 
 		showBubble : function () {
@@ -224,12 +228,13 @@ ARTUR = {
 			var header = $('header'),
 				bgColors = ['#2980b9', '#f8823c', '#c0392b', '#9b59b6', '#2c5379'],
 				pageIndex = 0,
-				pages = $('.full-page'),
-				numberOfPages = $('.full-page').length,
 				i = 0;
+				//ARTUR.variables.pages = $('.full-page'),
+				//ARTUR.variables.numberOfPages = $('.full-page').length;
+				
 
-			for (i; i < numberOfPages; i++) {
-				if ((pages.eq(i).offset().top) <= ARTUR.options.offsetTop) {
+			for (i; i < ARTUR.variables.numberOfPages; i++) {
+				if ((ARTUR.variables.pages.eq(i).offset().top - 50) <= ARTUR.variables.offsetTop) {
 					pageIndex = i;		
 				}
 			}
