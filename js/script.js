@@ -33,7 +33,7 @@ ARTUR = {
 			scrollTo : function () {
 				return this.each(function () {
 					var target = $(this).offset().top;
-					ARTUR.options.offsetTop = target + 2;
+					//ARTUR.options.offsetTop = target
 					$('html, body').stop().animate({
 						'scrollTop': target
 					}, ARTUR.options.speed, ARTUR.options.easingType);
@@ -51,6 +51,7 @@ ARTUR = {
 			this.scrollDetection();
 			this.setNavHoverColor();
 			this.setActiveClass();
+			this.showBubble();
 		},
 
 		mainNavigation : function () {
@@ -91,13 +92,17 @@ ARTUR = {
 				numberOfPages = $('.full-page').length,
 				buttons = [37, 38, 39, 40];
 
+			$('#keys a').click(function (e) {
+				e.preventDefault();
+			});
+
 			$(document)
 				.keydown(function (e) {
 					var keycode = e.which;
 
 					if ($.inArray(keycode, buttons) !=-1) {
 						e.preventDefault();
-						console.log('kyekode: '+ keycode);
+						console.log('keycode: '+ keycode);
 					}
 
 					switch (keycode) {
@@ -151,10 +156,11 @@ ARTUR = {
 		getCurrentPosition : function () {
 			var pageIndex = 0,
 				pages = $('.full-page'),
+				numberOfPages = $('.full-page').length,
 				i = 0;
 
-			for (i; i < pages.length; i++) {
-				if (pages.eq(i).offset().top <= ARTUR.options.offsetTop) {
+			for (i; i < numberOfPages; i++) {
+				if ((pages.eq(i).offset().top - 200) <= ARTUR.options.offsetTop) {
 					pageIndex = i;
 				}
 			}
@@ -172,6 +178,7 @@ ARTUR = {
 				ARTUR.menu.getCurrentPosition();
 				ARTUR.menu.setNavHoverColor();
 				ARTUR.menu.setActiveClass();
+				ARTUR.menu.setHeaderBg();
 
 				console.log('offset: ' + ARTUR.options.offsetTop);
 				console.log('currentPage: ' + ARTUR.options.currentPage);
@@ -187,7 +194,7 @@ ARTUR = {
 					$(this).css({ backgroundColor : bgColors[ARTUR.options.currentPage]});
 				},
 				function () {
-					$(this).css({ backgroundColor : '#ffffff'});
+					$(this).css({ backgroundColor : ''});
 				}
 			);
 		},
@@ -195,9 +202,46 @@ ARTUR = {
 		setActiveClass : function () {
 			var navElem = $('nav li a');
 
-			navElem.css({ backgroundColor: '#ffffff'});
-			navElem.eq(ARTUR.options.currentPage).css({ backgroundColor: '#e7e7e7'});
-		}
+			navElem.removeClass('active');
+			navElem.eq(ARTUR.options.currentPage).addClass('active');
+		},
+
+		showBubble : function () {
+			var keys = $('#track #keys'), 
+				bubble = $('#track .bubble');
+
+			keys.hover(
+				function () {
+					bubble.animate( {'opacity' : 1 }, 300, 'linear');
+				},
+				function () {
+					bubble.animate( {'opacity' : 0 }, 300, 'linear');
+				}
+			);
+		},
+
+		setHeaderBg : function () {
+			var header = $('header'),
+				bgColors = ['#2980b9', '#f8823c', '#c0392b', '#9b59b6', '#2c5379'],
+				pageIndex = 0,
+				pages = $('.full-page'),
+				numberOfPages = $('.full-page').length,
+				i = 0;
+
+			for (i; i < numberOfPages; i++) {
+				if ((pages.eq(i).offset().top) <= ARTUR.options.offsetTop) {
+					pageIndex = i;		
+				}
+			}
+
+			console.log(pageIndex);
+			header.css({ backgroundColor : bgColors[pageIndex]});
+		}	
+	},
+
+	resolution : {
+		width : verge.viewportW(),
+		height : verge.viewportH()
 	}
 };
 
