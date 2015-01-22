@@ -256,5 +256,12 @@ ARTUR = {
 
 $(document).ready(function () {
 	ARTUR.init();
+	$('html').niceScroll({
+		cursoropacitymin: 0.2,
+		cursoropacitymax: 0.5,
+		cursorwidth: "8px",
+		background: "rgba(0,0,0,0.3)",
+		mousescrollstep: 50
+	});
 	new WOW().init();
 });
