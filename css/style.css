@@ -131,18 +131,13 @@ header .fa-fw {
   -webkit-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
 }
-@media (max-width: 480px) {
+@media (max-width: 480px), (orientation: landscape) {
   .menu {
     width: 100%;
     height: auto;
     border: 5px solid #000000;
     border-top: none;
   }
-}
-.menu h2 {
-  font-size: 1px;
-  text-indent: -999999px;
-  margin: 0;
 }
 .menu ul {
   margin: 0;
@@ -162,7 +157,7 @@ header .fa-fw {
     font-size: 3em;
   }
 }
-@media (max-width: 480px) and (orientation: landscape) {
+@media (max-height: 480px) and (orientation: landscape) {
   .menu > i {
     display: none;
   }
