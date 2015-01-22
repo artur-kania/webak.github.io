@@ -83,6 +83,7 @@ header {
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
 	-webkit-backface-visibility: hidden; /*for Android 2.2 and 2.3**/
+	backface-visibility: hidden;
 	-webkit-transition: background-color .2s;
 	transition: background-color .2s;
 
@@ -151,7 +152,7 @@ header {
 	-webkit-transform: translate3d(100%,0,0);
 	transform: translate3d(100%,0,0);
 
-	@media (max-width: 480px), (orientation: landscape) {
+	@media (max-width: 480px), (max-height: 480px) {
 		width: 100%;
 		height: auto;
 		border: 5px solid #000000;
@@ -198,6 +199,10 @@ header {
 
 		@media (max-width: 480px) {
 			font-size: 1.2em;
+		}
+
+		@media (max-height: 480px) {
+			padding: 0.5em 1em 0.5em 2em;
 		}
 
 		&:hover {
