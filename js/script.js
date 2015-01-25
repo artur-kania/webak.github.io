@@ -9,7 +9,7 @@ var ARTUR = ARTUR || {};
 
 ARTUR = {
 	options : {
-		speed : 900,
+		speed : 700,
 		easingType : 'swing'
 	},
 
@@ -184,7 +184,7 @@ ARTUR = {
 					ARTUR.variables.scrollTimeout = null;
 				}
 
-				ARTUR.variables.scrollTimeout = setTimeout(ARTUR.menu.scrollReaction, 250);
+				ARTUR.variables.scrollTimeout = setTimeout(ARTUR.menu.scrollReaction, 100);
 			});
 		},	
 
@@ -256,12 +256,5 @@ ARTUR = {
 
 $(document).ready(function () {
 	ARTUR.init();
-	$('html').niceScroll({
-		cursoropacitymin: 0.2,
-		cursoropacitymax: 0.5,
-		cursorwidth: "8px",
-		background: "rgba(0,0,0,0.3)",
-		mousescrollstep: 50
-	});
 	new WOW().init();
 });
